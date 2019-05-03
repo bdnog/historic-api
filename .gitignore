@@ -1,0 +1,23 @@
+# IDEA
+.idea
+*.iml
+*.ipr
+
+# Sublime
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode
+
+# compiled output
+bin
+dist
+tmp
+out-tsc
+
+# dependencies
+node_modules
+
+# System Files
+.DS_Store
+Thumbs.db
