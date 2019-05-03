@@ -2,8 +2,8 @@
 This API is intended to provide a secure way to store historical data into a NOSQL database.
 
 ### When to use?
-When it doesn't make sense to keep an information in a relational database, for instance, data regarding an inactive client.
-If you are running out of space in your RDBMS, you might move the data you are not used to fetch to another place.
+When it doesn't make sense to keep information in a relational database, for instance, data regarding an inactive client.
+If you are running out of space in your RDBMS, you might move to another place the data you don't fetch often.
 
 ### Pre-requirements
 1. Start a secured MongoDB container
@@ -39,7 +39,7 @@ If you want to test the connection through the command line, you can use:
 docker exec -it mongodb mongo -u "historic" -p "example" --authenticationDatabase "historic"
 ```
 
-3. Create a secret for your application and store it in an environment variable. It will be used by JWT. Example:
+3. Create a secret key for your application and store it in an environment variable. It will be used by JWT. Example:
 ```bash
 # If you are a Windows user, just use `set` instead of `export`
 export APP_SECRET=21cbc8be848603d0f603604b1ed519a8
@@ -62,12 +62,19 @@ export MONGODB_PASSWORD=example
 _Note: if you are going to run the API as a container, instead of creating the environment variables as explained in the steps 3, 4, and 5, you have to inform them as part of the `docker run` command_
 
 ### Run the API
-1. Build a Docker image by using the `Dockerfile` located in the root folder
+1. In order to run it in development mode, just use the following command in the root folder:
+```bash
+npm run dev
+```
+
+_Make sure you have the Node.JS installed in your environment_
+
+2. Build a Docker image by using the `Dockerfile` located in the root folder
 ```bash
 docker build -t historic-api .
 ```
 
-2. Run the container
+3. Run the container
 ```bash
 docker run -it -d \
         --name historic-api \
